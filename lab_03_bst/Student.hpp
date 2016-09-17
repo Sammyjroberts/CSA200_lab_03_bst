@@ -8,15 +8,21 @@
 
 #ifndef Student_hpp
 #define Student_hpp
+
 #include <string>
 #include <iostream>
 #include <stdio.h>
 using namespace std;
+
 class Student {
+    friend ostream& operator<<(ostream& out, const Student &s);
 public:
-    Student() : firstName(""), lastName(""), id(0){}
-    ~Student();
-    void setStudentInfo(string fName, string lName, int newId);
+    Student() : id(0){}
+    ~Student(){};
+    void setStudentInfo(int newId, const string &fName, const string &lName);
+    bool operator< (const Student &s);
+    bool operator> (const Student &s);
+    bool operator== (const Student &s);
 private:
     int id;
     string firstName;

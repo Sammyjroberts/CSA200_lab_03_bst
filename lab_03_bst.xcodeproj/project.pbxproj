@@ -17,6 +17,7 @@
 		5338FB681D8CB0FA00979039 /* data_int_3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53231EC41D8CA205009B4AE9 /* data_int_3.txt */; };
 		5338FB6B1D8CB11000979039 /* data_char_1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5338FB691D8CB11000979039 /* data_char_1.txt */; };
 		5338FB6C1D8CB11000979039 /* data_double_1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5338FB6A1D8CB11000979039 /* data_double_1.txt */; };
+		5338FB6D1D8CC2C300979039 /* data_student_1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53231EBD1D8C9B93009B4AE9 /* data_student_1.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				5338FB6D1D8CC2C300979039 /* data_student_1.txt in CopyFiles */,
 				5338FB6B1D8CB11000979039 /* data_char_1.txt in CopyFiles */,
 				5338FB6C1D8CB11000979039 /* data_double_1.txt in CopyFiles */,
 				5338FB671D8CB0FA00979039 /* data_int_2.txt in CopyFiles */,

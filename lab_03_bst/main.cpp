@@ -1,4 +1,5 @@
 #include "BST.h"
+#include "BST.cpp"
 #include "Student.hpp"
 
 #include <iostream>
@@ -11,7 +12,7 @@ void processTree(BST<T>&,char[]);
 template <class T>
 void testTree(BST<T>&);
 
-//void processStudentTree(BST<Student>&, char[]);
+void processStudentTree(BST<Student>&, char[]);
 
 int main()
 {
@@ -45,12 +46,12 @@ int main()
     processTree(doubleBST, fileNameDouble1);
     testTree(doubleBST);
     
-//    cout << "\n\n---------------------------------------------------\n";
-//    cout << "TESTING: Student BST\n\n";
-//    BST<Student> studentBST;
-//    char fileNameStudent1[] = "data_student_1.txt";
-//    processStudentTree(studentBST, fileNameStudent1);
-//    testTree(studentBST);
+    cout << "\n\n---------------------------------------------------\n";
+    cout << "TESTING: Student BST\n\n";
+    BST<Student> studentBST;
+    char fileNameStudent1[] = "data_student_1.txt";
+    processStudentTree(studentBST, fileNameStudent1);
+    testTree(studentBST);
     
     cout << "\n\n---------------------------------------------------\n";
     cout << "TESTING: Deleting tree...\n\n";
@@ -98,34 +99,34 @@ void testTree(BST<T>& bst)
     cout << "\nTotal nodes: " << bst.totalNodes();
 }
 
-//void processStudentTree(BST<Student>& studentTree, char fileName[])
-//{
-//    ifstream infile;
-//    infile.open(fileName);
-//    
-//    if (!infile)
-//        cerr << "Cannot open the input file." << endl;
-//    else
-//    {
-//        int id;
-//        string fName, lName;
-//        Student student;
-//        
-//        infile >> id;
-//        
-//        while (!infile.eof())
-//        {
-//            infile >> fName;
-//            infile >> lName;
-//            
-//            student.setStudentInfo(id, fName, lName);
-//            
-//            studentTree.insert(student);
-//            
-//            infile >> id;
-//        }		
-//        infile.clear(); //reset eof for next input
-//    }
-//    
-//    infile.close();
-//}
+void processStudentTree(BST<Student>& studentTree, char fileName[])
+{
+    ifstream infile;
+    infile.open(fileName);
+    
+    if (!infile)
+        cerr << "Cannot open the input file." << endl;
+    else
+    {
+        int id;
+        string fName, lName;
+        Student student;
+        
+        infile >> id;
+        
+        while (!infile.eof())
+        {
+            infile >> fName;
+            infile >> lName;
+            
+            student.setStudentInfo(id, fName, lName);
+            
+            studentTree.insert(student);
+            
+            infile >> id;
+        }		
+        infile.clear(); //reset eof for next input
+    }
+    
+    infile.close();
+}

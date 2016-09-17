@@ -33,44 +33,44 @@ void  BST<T>::destroyTree()
 template <class T>
 void BST<T>::insert(T data) {
     insert(root, data);
-    //    try {
-    //        if(this->root == nullptr) {
-    //            root = new Node(data);
-    //        }
-    //        else {
-    //            Node *traverser = root;
-    //            Node *prev = nullptr;
-    //
-    //            while(traverser != nullptr) {
-    //                if (traverser->data > data) {
-    //                    prev = traverser;
-    //                    traverser = traverser->llink;
-    //                }
-    //                else if(traverser->data < data) {
-    //                    prev = traverser;
-    //                    traverser = traverser->rlink;
-    //                }
-    //                else {
-    //                    throw invalid_argument("");
-    //                }
-    //            }
-    //
-    //            if (prev->data > data) {
-    //                prev->llink = new Node(data);
-    //            }
-    //            else if(prev->data < data) {
-    //                prev->rlink = new Node(data);
-    //            }
-    //
-    //            prev = nullptr;
-    //            traverser = nullptr;
-    //            delete prev;
-    //            delete traverser;
-    //        }
-    //    }
-    //    catch(invalid_argument e) {
-    //        cout << "Duplicate" << endl;
-    //    }
+//        try {
+//            if(this->root == nullptr) {
+//                root = new Node<T>(data);
+//            }
+//            else {
+//                Node<T> *traverser = root;
+//                Node<T> *prev = nullptr;
+//    
+//                while(traverser != nullptr) {
+//                    if (traverser->data > data) {
+//                        prev = traverser;
+//                        traverser = traverser->llink;
+//                    }
+//                    else if(traverser->data < data) {
+//                        prev = traverser;
+//                        traverser = traverser->rlink;
+//                    }
+//                    else {
+//                        throw invalid_argument("");
+//                    }
+//                }
+//    
+//                if (prev->data > data) {
+//                    prev->llink = new Node<T>(data);
+//                }
+//                else if(prev->data < data) {
+//                    prev->rlink = new Node<T>(data);
+//                }
+//    
+//                prev = nullptr;
+//                traverser = nullptr;
+//                delete prev;
+//                delete traverser;
+//            }
+//        }
+//        catch(invalid_argument e) {
+//            cout << "Duplicate" << endl;
+//        }
 }
 template <class T>
 void BST<T>::inorderTraversal() const
@@ -120,7 +120,11 @@ int BST<T>::totalNodes(Node<T>* root) const {
 //recursive insert
 template <class T>
 void BST<T>::insert(Node<T>* &root, T data){
-    if(root->data < data) {
+    if(root == nullptr) {
+        
+        root = new Node<T>(data);
+    }
+    else if(root->data < data) {
         insert(root->rlink, data);
     }
     else if(root->data > data) {
@@ -129,10 +133,15 @@ void BST<T>::insert(Node<T>* &root, T data){
     else {
         cout << "dupe";
     }
+
 }
 template <class T>
 void BST<T>::destroyTree(Node<T>* &p) {
-    destroyTree(p->llink);
-    destroyTree(p->rlink);
-    delete p;
+    if(p != nullptr)
+    {
+        destroyTree(p->llink);
+        destroyTree(p->rlink);
+        delete p;
+        p = nullptr;
+    }
 }
