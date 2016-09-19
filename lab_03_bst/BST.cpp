@@ -1,13 +1,22 @@
-//
-//  BST.cpp
-//  lab_03_bst
-//
-//  Created by Dean Roberts on 9/16/16.
-//  Copyright © 2016 Dean Roberts. All rights reserved.
-//
-
+/*
+ Roberts, Sammy
+ CS A200
+ September 19, 2016
+ 
+ lab_03_bst
+ */
 #include "BST.h"
 //Default constructor
+template <class T>
+Node<T>::Node() {
+    llink = nullptr;
+    rlink = nullptr;
+}
+template <class T>
+Node<T>::~Node() {
+    llink = nullptr;
+    rlink = nullptr;
+}
 template <class T>
 BST<T>::BST()
 {
@@ -35,7 +44,8 @@ void BST<T>::insert(T data) {
     insert(root, data);
 //        try {
 //            if(this->root == nullptr) {
-//                root = new Node<T>(data);
+//                root = new Node<T>;
+                //root->data = data
 //            }
 //            else {
 //                Node<T> *traverser = root;
@@ -56,10 +66,12 @@ void BST<T>::insert(T data) {
 //                }
 //    
 //                if (prev->data > data) {
-//                    prev->llink = new Node<T>(data);
+//                    prev->llink = new Node<T>;
+//                    prev->llink->data = data;
 //                }
 //                else if(prev->data < data) {
-//                    prev->rlink = new Node<T>(data);
+//                    prev->rlink = new Node<T>;
+//                    prev->rlink->data = data
 //                }
 //    
 //                prev = nullptr;
@@ -96,8 +108,8 @@ int BST<T>::totalNodes() const
 template <class T>
 void BST<T>::inorderTraversal(const Node<T> *p) const {
     if(p != nullptr) {
-        cout << p->data << " ";
         inorderTraversal(p->llink);
+        cout << p->data << " ";
         inorderTraversal(p->rlink);
     }
 }
@@ -122,7 +134,8 @@ template <class T>
 void BST<T>::insert(Node<T>* &root, T data){
     if(root == nullptr) {
         
-        root = new Node<T>(data);
+        root = new Node<T>;
+        root->data = data;
     }
     else if(root->data < data) {
         insert(root->rlink, data);

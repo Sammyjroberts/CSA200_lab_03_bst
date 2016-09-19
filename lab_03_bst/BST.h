@@ -10,12 +10,8 @@ class Node
     template <class T>
 	friend class BST;
 public:
-    Node() : rlink(nullptr), llink(nullptr){}
-    Node(R d): data(d), rlink(nullptr), llink(nullptr){}
-    ~Node() {
-        rlink = nullptr;
-        llink = nullptr;
-    }
+    Node();
+    ~Node();
 private:
     R data;
     Node *rlink, *llink;
